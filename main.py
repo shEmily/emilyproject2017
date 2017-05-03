@@ -17,8 +17,6 @@ def page_not_found(e):
     """Return a custom 404 error."""
     return 'Sorry, nothing at this URL.', 404
 
-firstMenu = ["인사"]
- 
 #특정 URL을 호출했을 때 호출되는 함수를 정의한다. 요청에 대한 응답 == view함수. 특정 URI와 일치시키기 위해 플라스크에서 미리 정의한 route() 데코레이터를 사용한다. /message를 호출했을 때 message()함수가 실행 됨.
 #키보드
 @app.route("/keyboard", methods=['GET'])
@@ -27,8 +25,6 @@ def keyboard():
         "type" : "buttons",
         "buttons" : [u"A", u"B", u"C"]
     }
-
-
 
 #메시지
 @app.route("/message", methods=['POST'])
@@ -102,6 +98,5 @@ def friend():
 def chat_room():
     chat_room = { "message" : "여전히 공지는 받으실 수 있어요!"}
 
-    
 if __name__ == "__main__":  #실행되는 모듈이 파이썬 인터프린터에 의한 메인 모듈로 실행됐는지 임포트되어 사용되었는지 학인, 메인 모듈로 실행되었으면 테스트 용도로 사용되는 로컬 서버인 run()함수 실행.
     app.run()
