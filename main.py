@@ -14,15 +14,17 @@ app.config['DEBUG'] = True  #디버깅 모드 온-트루, 오프 폴스
 
 #특정 URL을 호출했을 때 호출되는 함수를 정의한다. 요청에 대한 응답 == view함수. 특정 URI와 일치시키기 위해 플라스크에서 미리 정의한 route() 데코레이터를 사용한다. /message를 호출했을 때 message()함수가 실행 됨.
 #키보드
-@app.route("/keyboard", methods=['GET'])
+@app.route("https://emilyproject2017.appspot.com/keyboard", methods=['GET'])
 def keyboard():
     key = {
         "type" : "buttons",
         "buttons" : [u"A", u"B", u"C"]
     }
 
+
+
 #메시지
-@app.route("/message", methods=['POST'])
+@app.route("https://emilyproject2017.appspot.com/message", methods=['POST'])
 def message():
     message = [
     {
@@ -76,7 +78,7 @@ def message():
     ]
     
 #친구추가
-@app.route("/friend", methods=['POST'])
+@app.route("https://emilyproject2017.appspot.com/friend", methods=['POST'])
 def friend():
     friend = { 
         "user_key" : "HASHED_USER_KEY",
@@ -84,16 +86,15 @@ def friend():
     }
     
 #친구삭제
-@app.route("/friend/:user_key", methods=['DELETE'])
+@app.route("https://emilyproject2017.appspot.com/friend/:user_key", methods=['DELETE'])
 def friend():
     friend = { "message" : "아쉽지만.. 다음에 또 만나길 바래요!"}
     
 #채팅방 나가기
-@app.route("/chat_room/HASHED_USER_KEY", methods=['DELETE'])
+@app.route("https://emilyproject2017.appspot.com/chat_room/HASHED_USER_KEY", methods=['DELETE'])
 def chat_room():
     chat_room = { "message" : "여전히 공지는 받으실 수 있어요!"}
-    
-    
+
     
 @app.errorhandler(404)
 def page_not_found(e):
